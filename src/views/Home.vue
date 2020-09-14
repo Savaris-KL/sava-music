@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="ele-home ele-fl">
+    <div class="ele-left">
+      <LeftSider />
+    </div>
+    <div class="ele-right">
+      <TopBar />
+      <Content />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import LeftSider from '@/components/LeftSider/Index.vue'
+import TopBar from '@/components/TopBar/Index.vue'
+import Content from '@/components/Content/Index.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld
+    LeftSider,
+    TopBar,
+    Content
   }
 })
 </script>
+
+<style lang="stylus" scoped>
+.ele-left
+  width 20.6666%
+  background-color rgba(0,0,0,0.9)
+
+.ele-right
+  flex 1
+  background-color rgba(0,0,0,0.88)
+</style>

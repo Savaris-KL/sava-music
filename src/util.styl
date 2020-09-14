@@ -1,0 +1,148 @@
+.ele-container 
+    min-height 100vh
+
+.ele-scroll-view
+    overflow-y auto
+    box-sizing border-box
+    height 100vh
+
+.ele-no-pmo
+    outline 0
+    margin 0
+    padding 0
+
+.ele-scroll-no-bar::-webkit-scrollbar
+    display none
+
+.ele-border-box
+    box-sizing border-box
+
+.ele-z
+    &-bot
+        z-index 0
+    &-mid
+        z-index 1
+    &-top
+        z-index 2
+
+.ele-center
+    display flex
+    justify-content center
+    align-items center
+
+.ele-fl 
+    display flex
+.ele-fl-auto 
+    flex 1
+.ele-fl-col
+    display flex
+    flex-direction column
+.ele-fl-wrap
+    flex-wrap wrap
+.ele-jus
+    &-left
+        justify-content flex-start
+    &-center
+        justify-content center
+    &-right
+        justify-content flex-end
+    &-between
+        justify-content space-between
+    &-around
+        justify-content space-around
+
+.ele-ali
+    &-top
+        align-items flex-start
+    &-center
+        align-items center
+    &-bottom
+        align-items flex-end
+
+.ele-size
+    for size in 10 12 14 18 22 26 30 34 38 42
+        &-{size}
+            font-size size * 1px
+
+.ele-color-black
+    for opac in 1 2 3 4 5 6 7 8 9 10
+        &-{opac}
+            color rgba(0,0,0,opac * 0.1)
+
+.ele-color-white
+    for opac in 1 2 3 4 5 6 7 8 9 10
+        &-{opac}
+            color rgba(255,255,255,opac * 0.1)
+
+.ele-color-green
+    for opac in 1 2 3 4 5 6 7 8 9 10
+        &-{opac}
+            color rgba(0,255,204,opac * 0.1)
+
+.ele-weight
+    &-bold 
+        font-weight bold
+    &-bolder
+        font-weight bolder
+    for weight in 100 200 300 400 500
+        &-{weight}
+            font-weight weight
+
+.ele-ellipsis
+    display block
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+
+.ele-m
+    for gap in 10 15 20 25 30
+        &-{gap}
+            margin gap * 1px
+
+.ele-mt
+    for gap in 5 10 15 20 25 30
+        &-{gap}
+            margin-top gap * 1px
+
+.ele-mb
+    for gap in 10 15 20 25 30
+        &-{gap}
+            margin-bottom gap * 1px
+    
+.ele-ml
+    for gap in 7 10 15 20 25 30 40 50
+        &-{gap}
+            margin-left gap * 1px
+    
+.ele-mr
+    for gap in 7 10 15 20 25 30 40 50
+        &-{gap}
+            margin-right gap * 1px
+
+.ele-p
+    for gap in 10 15 20 25 30
+        &-{gap}
+            padding gap * 1px
+
+.ele-pt
+    for gap in 10 15 20 25 30
+        &-{gap}
+            padding-top gap * 1px
+
+.ele-pb
+    for gap in 10 15 20 25 30 100 200
+        &-{gap}
+            padding-bottom gap * 1px
+    
+.ele-pl
+    for gap in 10 15 20 25 30 40 50
+        &-{gap}
+            padding-left gap * 1px
+    
+.ele-pr
+    for gap in 10 15 20 25 30 40 50
+        &-{gap}
+            padding-right gap * 1px
+            
+.ele-text-unselect
+    user-select none

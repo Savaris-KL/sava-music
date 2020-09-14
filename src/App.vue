@@ -1,17 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="stylus">
+@font-face {
+  font-family: Meslo;
+  src: url('~@/assets/fonts/Meslo LG S Bold for Powerline.ttf');
+}
+
+body
+  margin 0
+  padding 0
+  outline 0
+  width 100vw
+  height 100vh
+  overflow hidden
+  @extend .ele-container
+  @extend .ele-color-white-10
 #app
-  font-family Avenir, Helvetica, Arial, sans-serif
+  font-family Meslo
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+  @extend .ele-container
 </style>
