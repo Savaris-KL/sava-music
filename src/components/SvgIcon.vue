@@ -16,6 +16,7 @@
       <path
         :d="content"
         p-id="1299"
+        :class="{ 'ele-path-trans': gradient }"
         :fill="hover && focus ? hoverColor : color"
       ></path>
     </template>
@@ -44,6 +45,10 @@ export default defineComponent({
   name: 'SvgIcon',
   props: {
     content: [String, Array],
+    gradient: {
+      type: Boolean,
+      default: true
+    },
     size: {
       type: Number,
       default: 14
@@ -63,3 +68,8 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="stylus" scoped>
+.ele-path-trans
+  transition all .3s
+</style>

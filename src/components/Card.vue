@@ -8,7 +8,13 @@
       { 'ele-plcard-leave': !wrapperHover }
     ]"
   >
-    <div v-show="wrapperHover" class="ele-plcard-mask ele-z-top ele-center">
+    <div
+      class="ele-plcard-mask ele-z-top ele-center"
+      :class="[
+        { 'ele-plcard-opacity-1': wrapperHover },
+        { 'ele-plcard-opacity-0': !wrapperHover }
+      ]"
+    >
       <span @mousemove="iconMouseover" @mouseleave="iconMouseleave">
         <SvgIcon
           :content="assets.iconPlay"
@@ -64,17 +70,23 @@ export default defineComponent({
     display inline-block
     position relative
     &-mask
-        position absolute
-        top 0
-        left 0
-        right 0
-        bottom 0
-        background-color rgba(0,0,0,0.7)
-        border-radius 10px
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      background-color rgba(0,0,0,0.7)
+      border-radius 10px
+    &-opacity-0
+      transition all .3s
+      opacity 0
+    &-opacity-1
+      transition all .3s
+      opacity 1
     &-hover
-        transition all .3s
-        transform translateY(-10px)
+      transition all .3s
+      transform translateY(-10px)
     &-leave
-        transition all .3s
-        transform translateY(0px)
+      transition all .3s
+      transform translateY(0px)
 </style>
