@@ -1,5 +1,5 @@
 <template>
-  <div class="ele-home ele-fl">
+  <div class="ele-home ele-fl ele-drag">
     <div class="ele-left">
       <LeftSider />
     </div>
