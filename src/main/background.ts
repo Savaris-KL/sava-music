@@ -1,10 +1,16 @@
+'use-strict'
 import { app, protocol, BrowserWindow, Tray, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
+import os from 'os'
 import { mainWindowConfig } from '@/config'
 import { createTray } from './tray'
+import { setTaskbar } from './taskbar'
 const isDevelopment = process.env.NODE_ENV !== 'production'
+
+// Global variables
+global.__mac = os.platform() === 'darwin'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,6 +20,8 @@ let tray: Tray | null
 app.whenReady().then(() => {
   // Create tray
   tray = createTray()
+  // Set task bar
+  setTaskbar()
 })
 
 // Scheme must be registered before the app is ready
