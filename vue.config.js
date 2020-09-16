@@ -9,8 +9,10 @@ module.exports = {
   },
   pluginOptions: {
     electronBuilder: {
-      productName: 'SAVA音乐',
-      mainProcessFile: 'src/main/background.ts'
+      mainProcessFile: 'src/main/background.ts',
+      builderOptions: {
+        productName: 'SAVA音乐'
+      }
     }
   }
 }

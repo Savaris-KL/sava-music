@@ -1,15 +1,20 @@
-'use strict'
-/* global __static */
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, Tray, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
 import { mainWindowConfig } from '@/config'
+import { createTray } from './tray'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null
+let tray: Tray | null
+
+app.whenReady().then(() => {
+  // Create tray
+  tray = createTray()
+})
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -29,7 +34,7 @@ function createWindow () {
       nodeIntegration: (process.env
         .ELECTRON_NODE_INTEGRATION as unknown) as boolean
     },
-    icon: path.join(__static, 'icon.png')
+    icon: path.join(__static, 'icons/64x64.png')
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {

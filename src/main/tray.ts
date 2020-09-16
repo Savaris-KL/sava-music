@@ -1,8 +1,8 @@
 import { app, Menu, Tray } from 'electron'
+import path from 'path'
 
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/src/assets/logo.ico')
+export function createTray () {
+  const tray = new Tray(path.join(__static, 'icons/16x16.png'))
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
@@ -11,4 +11,5 @@ app.whenReady().then(() => {
   ])
   tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
-})
+  return tray
+}
