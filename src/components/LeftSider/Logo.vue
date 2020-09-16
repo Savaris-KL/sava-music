@@ -1,7 +1,7 @@
 <template>
   <div class="ele-logo ele-fl ele-ali-center ele-color-white-10 ele-ml-30">
-    <img class="ele-text-unselect" :src="assets.logo" alt="" />
-    <h3 class="ele-ml-10 ele-text-unselect ele-weight-400">SAVA音乐</h3>
+    <img class="ele-no-select" :src="assets.logo" alt="" />
+    <h3 class="ele-ml-10 ele-no-select ele-weight-400">SAVA音乐</h3>
   </div>
 </template>
 

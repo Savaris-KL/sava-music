@@ -1,6 +1,6 @@
 <template>
-  <div class="ele-tree-list">
-    <h3 class="ele-color-white-3 ele-size-12 ele-ml-30 ele-text-unselect">{{ title }}</h3>
+  <div class="ele-tree-list ele-no-drag">
+    <h3 class="ele-color-white-3 ele-size-12 ele-ml-30 ele-no-select">{{ title }}</h3>
     <ul class="ele-ul-pure ele-ml-30">
       <li
         class="ele-li ele-fl ele-ali-center ele-mt-20 ele-size-14"
@@ -19,7 +19,7 @@
         <div class="ele-z-top ele-fl ele-ali-center">
           <SvgIcon :content="item.icon" :size="14" :color="item.color" />
           <span
-            class="ele-size-14 ele-color-white-7 ele-ml-7 ele-text-unselect"
+            class="ele-size-14 ele-color-white-7 ele-ml-7 ele-no-select"
             :class="{
               'ele-color-white-10': [hoverIndex, clickIndex].includes(item.id)
             }"

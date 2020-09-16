@@ -2,7 +2,7 @@
   <div
     @mouseover="wrapperMouseover"
     @mouseleave="wrapperMouseleave"
-    class="ele-plcard"
+    class="ele-plcard ele-no-drag ele-no-select"
     :class="[
       { 'ele-plcard-hover': wrapperHover },
       { 'ele-plcard-leave': !wrapperHover }

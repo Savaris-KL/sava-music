@@ -1,5 +1,5 @@
 <template>
-  <div class="ele-fl ele-ali-center">
+  <div class="ele-fl ele-ali-center ele-no-drag">
     <div class="ele-user ele-center">
       <Avatar :src="avatar" :size="24" />
       <div class="ele-ml-7"></div>

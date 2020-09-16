@@ -1,5 +1,5 @@
 <template>
-  <div class="ele-search-bar ele-ali-center">
+  <div class="ele-search-bar ele-ali-center ele-no-drag">
     <SvgIcon
       :content="assets.iconSearch"
       :size="14"
