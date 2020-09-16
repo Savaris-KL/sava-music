@@ -2,15 +2,15 @@
 import { app, protocol, BrowserWindow, Tray, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-import path from 'path'
 import os from 'os'
 import { mainWindowConfig } from '@/config'
 import { createTray } from './tray'
-import { setTaskbar } from './taskbar'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Global variables
 global.__mac = os.platform() === 'darwin'
+global.__win = os.platform() === 'win32'
+global.__lnx = os.platform() === 'linux'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -20,8 +20,6 @@ let tray: Tray | null
 app.whenReady().then(() => {
   // Create tray
   tray = createTray()
-  // Set task bar
-  setTaskbar()
 })
 
 // Scheme must be registered before the app is ready
@@ -30,20 +28,37 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({
+  let opts = {
     width: mainWindowConfig.width,
     height: mainWindowConfig.height,
-    titleBarStyle: 'hidden',
-    // transparent: true,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: (process.env
         .ELECTRON_NODE_INTEGRATION as unknown) as boolean
-    },
-    icon: path.join(__static, 'icons/64x64.png')
-  })
+    }
+  }
+  const macOpts = {
+    titleBarStyle: 'hidden',
+    transparent: true
+  }
+  const winOpts = {
+    frame: false
+  }
+  const lnxOpts = {}
+
+  if (global.__mac) {
+    opts = Object.assign({}, opts, macOpts)
+  }
+  if (global.__win) {
+    opts = Object.assign({}, opts, winOpts)
+  }
+  if (global.__lnx) {
+    opts = Object.assign({}, opts, lnxOpts)
+  }
+
+  // Create the browser window.
+  win = new BrowserWindow(opts)
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode

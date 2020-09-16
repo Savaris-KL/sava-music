@@ -11,7 +11,13 @@ module.exports = {
     electronBuilder: {
       mainProcessFile: 'src/main/background.ts',
       builderOptions: {
-        productName: 'SAVA音乐'
+        productName: 'SAVA音乐',
+        mac: {
+          icon: 'public/icons/icon.icns'
+        },
+        win: {
+          icon: 'public/icons/icon.ico'
+        }
       }
     }
   }
