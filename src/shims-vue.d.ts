@@ -4,4 +4,4 @@ declare module '*.vue' {
   export default component
 }
 
-declare const __static: string
+declare const __static: string // electron-vue所提供的全局变量，指向public
